@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here are some words, @ViewData["Name"]</h1>
+    <hr>
+    <h2>FILL THIS OUT NOW USER!</h2>
+    <form action="/doit" method="POST">
+        <input type="text" name="name" placeholder="Enter your name:">
+        <input type="text" name="location" placeholder="Enter your location:">
+        <label for="fruits">Favorite Fruit:</label>
+        <select name="fruits" >
+
+            @foreach(string word in ViewBag.Fruits)
+            {
+                <option value="@word">@word</option>
+            }
+        </select>
+        <input type="submit" value="DO IT">
+    </form>
+</body>
+</html>
