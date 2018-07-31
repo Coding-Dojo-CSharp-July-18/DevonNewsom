@@ -1,0 +1,8 @@
+﻿@model Friend[]
+<a href="/new">Add a Friend!</a>
+<h1>Here are my friends</h1>
+@foreach(var friend in Model)
+{
+    <h3>Name: @friend.Name</h3>
+    <h3>Location: @friend.Location</h3>
+}
