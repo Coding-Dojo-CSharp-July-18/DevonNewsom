@@ -1,0 +1,35 @@
+﻿@model User
+<h1>Register NOW!</h1>
+<form asp-action="Create" asp-controller="Home" method="POST">
+    <div class="form-group">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="DOB"></span>
+        <label asp-for="DOB"></label>
+        <input asp-for="DOB">
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Password"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+    </div>
+
+    <div class="form-group">
+        <span asp-validation-for="Confirm"></span>
+        <label asp-for="Confirm"></label>
+        <input asp-for="Confirm">
+    </div>
+
+    <input type="submit" value="SEND IT!">
+</form>

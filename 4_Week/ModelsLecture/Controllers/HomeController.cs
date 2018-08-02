@@ -37,6 +37,11 @@ namespace ModelsLecture.Controllers
         [HttpPost("create")]
         public IActionResult Create(Friend myNewFriend)
         {
+            if(myNewFriend.Name == "Devon")
+                ModelState.AddModelError("Name", "NO DEVONS ALLOWED");
+
+            
+            
             if(ModelState.IsValid)
                 return Json(myNewFriend);
                 
