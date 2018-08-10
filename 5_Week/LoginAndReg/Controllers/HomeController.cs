@@ -31,7 +31,7 @@ namespace LoginFun.Controllers
                 // Verify unique email
 
                 List<Dictionary<string, object>> rows = DbConnector.Query($"SELECT * FROM users WHERE email = '{user.email}'");
-                if(rows.Count > 0)
+                if(false)
                     ModelState.AddModelError("email", "Email already in use");
 
                 else
