@@ -11,9 +11,9 @@ namespace DapperFun.Controllers
     public class HomeController : Controller
     {
         private UserFactory _userFactory;
-        public HomeController()
+        public HomeController(UserFactory userFactoryService)
         {
-            _userFactory = new UserFactory();
+            _userFactory = userFactoryService;
         }
         [HttpGet("")]
         public IActionResult Index()

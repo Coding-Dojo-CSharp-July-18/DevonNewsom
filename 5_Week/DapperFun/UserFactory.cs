@@ -11,14 +11,14 @@ namespace DapperFun
 
     public class UserFactory
     {
-        static string server = "localhost";
-        static string db = "mydb"; //Change to your schema name
-        static string port = "3306"; //Potentially 8889
-        static string user = "root";
-        static string pass = "root";
-        internal static IDbConnection Connection {
+        private MySqlOptions _mysql;
+        public UserFactory(IOptions<MySqlOptions> options)
+        {
+            _mysql = options.Value;
+        }
+        internal IDbConnection Connection {
             get {
-                return new MySqlConnection($"Server={server};Port={port};Database={db};UserID={user};Password={pass};SslMode=None");
+                return new MySqlConnection(_mysql.ConnectionString);
             }
         }
 

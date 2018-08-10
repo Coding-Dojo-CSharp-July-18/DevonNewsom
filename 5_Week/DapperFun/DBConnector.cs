@@ -1,9 +1,15 @@
 using System.Collections.Generic;
 using System.Data;
+using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
  
 namespace DapperFun
 {
+    public class MySqlOptions
+    {
+        public string Name {get;set;}
+        public string ConnectionString {get;set;}
+    }
     public class DbConnector
     {
         static string server = "localhost";
