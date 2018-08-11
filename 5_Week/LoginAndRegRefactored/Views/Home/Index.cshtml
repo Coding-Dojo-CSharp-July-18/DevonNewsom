@@ -1,0 +1,54 @@
+@model LogRegModel
+<h2>@TempData["message"]</h2>
+<h3>Login</h3>
+<form asp-action="PerformLogin" asp-controller="Home" method="POST">
+  
+    <div class="form-group">
+        <label asp-for="LogUser.email"></label>
+        <span asp-validation-for="LogUser.email"></span>
+        <input asp-for="LogUser.email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LogUser.password"></label>
+        <span asp-validation-for="LogUser.password"></span>
+        <input asp-for="LogUser.password">
+    </div>
+    <button>Login!</button>
+</form>
+<hr>
+<h3>Register</h3>
+<form asp-action="RegisterNewUser" asp-controller="Home" method="POST">
+  
+    <div class="form-group">
+        <label asp-for="NewUser.first_name"></label>
+        <span asp-validation-for="NewUser.first_name"></span>
+        <input asp-for="NewUser.first_name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewUser.last_name"></label>
+        <span asp-validation-for="NewUser.last_name"></span>
+        <input asp-for="NewUser.last_name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewUser.email"></label>
+        <span asp-validation-for="NewUser.email"></span>
+        <input asp-for="NewUser.email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewUser.password"></label>
+        <span asp-validation-for="NewUser.password"></span>
+        <input asp-for="NewUser.password">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewUser.confirm"></label>
+        <span asp-validation-for="NewUser.confirm"></span>
+        <input asp-for="NewUser.confirm">
+    </div>
+
+    <button>Register!</button>
+</form>
