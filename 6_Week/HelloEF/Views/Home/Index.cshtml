@@ -1,0 +1,16 @@
+﻿@model Friend
+<h2>Add a new friend</h2>
+<form asp-action="Create" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+    <input type="submit" value="Update">
+</form>
+<hr>
+<h3>All Friends:</h3>
+@foreach(var f in ViewBag.Friends)
+{
+    <p><a href="/@f.FriendId">@f.Name</a></p>
+}

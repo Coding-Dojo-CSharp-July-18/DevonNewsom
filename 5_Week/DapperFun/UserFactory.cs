@@ -31,6 +31,14 @@ namespace DapperFun
             }
         }
 
+        public List<User> GetAllUsers()
+        {
+            using(IDbConnection dbConnection = Connection)
+            {
+                return dbConnection.Query<User>("SELECT * FROM users").ToList();
+            }
+        }
+
         // A single user by id
         public User GetUserById(int id)
         {
@@ -39,6 +47,16 @@ namespace DapperFun
                 string query = $"SELECT * FROM users WHERE user_id = @USERID";
                 object myParam = new { USERID = id };
                 return dbConnection.Query<User>(query, myParam).First();
+            }
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            using(IDbConnection dbConnection = Connection)
+            {
+                return dbConnection.Query<User>("SELECT * FROM users").SingleOrDefault(
+                    u => u.email == email
+                );
             }
         }
 

@@ -18,6 +18,8 @@ namespace DapperFun.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
+            User someUser = _userFactory.GetUserByEmail("sup@sup.com");
+
             IEnumerable<User> recentUsers = _userFactory.MostRecentFive();
             
             return View(recentUsers);
@@ -33,7 +35,7 @@ namespace DapperFun.Controllers
         {
             if(ModelState.IsValid)
             {
-                if(!_userFactory.EmailIsUnique(user.email))
+                if(_userFactory.GetAllUsers().Any(u => u.email == user.email))
                     ModelState.AddModelError("email", "Email is not unique!");
 
                 // ALL THE REG THING

@@ -1,0 +1,17 @@
+@model Friend
+<h1>View For @Model.Name</h1>
+<h2>Created: @Model.CreatedAtFormatted</h2>
+<hr>
+<h2>Update this friend</h2>
+<form asp-action="Update" asp-route-friendId="@Model.FriendId" asp-controller="Home" method="post">
+    <div class="form-group">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+    </div>
+    <input type="hidden" value="@Model.FriendId" asp-for="FriendId">
+    <input type="submit" value="Update">
+</form>
+<hr>
+<h2>Delete This Friend</h2>
+<a href="delete/@Model.FriendId">DELETE</a>

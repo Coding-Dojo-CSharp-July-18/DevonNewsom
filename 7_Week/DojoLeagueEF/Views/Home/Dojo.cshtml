@@ -1,0 +1,12 @@
+﻿@model Dojo
+<h2>Name:</h2>
+<p>@Model.Name</p>
+<h2>Location:</h2>
+<p>@Model.Location</p>
+<h2>Description:</h2>
+<p>@Model.Description</p>
+<h2>Ninjas</h2>
+@foreach(var ninja in Model.Ninjas)
+{
+    <p><a href="/ninja/@ninja.NinjaId">@ninja.Name (@ninja.Description)</a></p>
+}

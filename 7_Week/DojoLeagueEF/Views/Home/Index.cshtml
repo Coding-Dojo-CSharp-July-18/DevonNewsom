@@ -1,0 +1,13 @@
+﻿@model HomeViewModel
+
+<h2>Ninjas</h2>
+@foreach(var ninja in Model.AllNinjas)
+{
+    <p><a href="ninja/@ninja.NinjaId">@ninja.Name</a></p>
+}
+<hr>
+<h2>Dojos</h2>
+@foreach(var dojo in Model.AllDojos)
+{
+    <p><a href="dojo/@dojo.DojoId">@dojo.Name</a></p>
+}

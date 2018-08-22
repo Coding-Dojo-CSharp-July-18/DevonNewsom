@@ -48,16 +48,20 @@ namespace LINQLecture
                 // what joins inner
                 c => c.StateCode,
                 // what we want back from two joined objects
-                (joinState, joinCity) => 
+                (joinState, joinCity) =>
                 {
                     joinState.Cities.Add(joinCity);
                     return joinState;
                 }).ToList();
 
+            int maxStatePop = StatesWithCities.Max(st => st.Cities.Sum(c => c.Population));
+
             // Challenge! find most populous state!
-            State mostPopulous = StatesWithCities.FirstOrDefault(
-                s => s.Cities.Sum(c => c.Population) == StatesWithCities.Max(st => st.Cities.Sum(c => c.Population))
+            State mostPopulous = StatesWithCities.SingleOrDefault(
+                s => s.Cities.Sum(c => c.Population) == maxStatePop
             );
+
+
         }
     }
 }
