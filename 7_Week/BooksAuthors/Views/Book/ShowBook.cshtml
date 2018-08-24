@@ -1,0 +1,11 @@
+@model Book
+<h1>@Model.Title</h1>
+<h1>Author: @Model.TheAuthor.Name</h1>
+<h2>Reviews:</h2>
+@foreach(var rev in Model.Reviews)
+{
+    <hr>
+    <h4>Rating: @rev.Rating</h4> 
+    <h4><a href="/user/@rev.Reviewer.UserId">@rev.Reviewer.Name</a> says: @rev.Content</h4>
+    <p>Posted on @rev.CreatedAt.ToString("D")</p>
+}

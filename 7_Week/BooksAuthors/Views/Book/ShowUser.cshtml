@@ -1,0 +1,12 @@
+@model ReviewerUser
+
+<h2><strong>User Alias: </strong>@Model.Alias</h2>
+<h2><strong>Name: </strong>@Model.Name</h2>
+<h2><strong>Email: </strong>@Model.Email</h2>
+<h2><strong>Submitted Reviews: </strong>@Model.ReviewsLeft.Count()</h2>   
+<hr>
+<h3>Here are the books this user has reviewed:</h3>
+@foreach(var review in Model.ReviewsLeft)
+{
+    <p><a href="/book/@review.ReviewedBook.BookId">@review.ReviewedBook.Title</a></p>
+}

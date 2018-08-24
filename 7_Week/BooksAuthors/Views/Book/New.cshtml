@@ -1,0 +1,38 @@
+@model NewBookViewModel
+<form asp-action="Create" method="post" asp-controller="Book">
+    <div class="form-group">
+        <span asp-validation-for="NewBook.Title"></span>
+        <label asp-for="NewBook.Title"></label>
+        <input class="form-control" asp-for="NewBook.Title">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="NewBook.Author"></span>
+        <h4>Choose from existing:</h4>
+        <select class="form-control" asp-for="NewBook.Author">
+        @foreach(Author auth in Model.ExistingAuthors)
+        {
+            <option value="@auth.AuthorId">@auth.Name</option>
+        }
+        </select>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="NewBook.NewAuthor"></span>
+        <h4>Or add a new author:</h4>
+        <input class="form-control" asp-for="NewBook.NewAuthor">
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="NewBook.Review"></span>
+        <label asp-for="NewBook.Review"></label>
+        <textarea class="form-control" asp-for="NewBook.Review"></textarea>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="NewBook.Rating"></span>
+        <select class="form-control" asp-for="NewBook.Rating">
+        @for(var i=1; i<=5; i++)
+        {
+            <option value="@i">@i</option>
+        }
+        </select>
+    </div>
+    <input type="submit" value="Add Book and Review">
+</form>

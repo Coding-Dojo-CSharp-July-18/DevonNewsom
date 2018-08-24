@@ -1,0 +1,17 @@
+﻿@model BookDashboard
+<h2>Welcome, @Model.LoggedInUser.Name</h2>
+<hr>
+<h3>Recent Book Reviews:</h3>
+@foreach(Review rev in Model.RecentReviews)
+{
+    <div class="review">
+        <h3><a href="/book/@rev.ReviewedBook.BookId">@rev.ReviewedBook.Title</a></h3>
+        <h4>Rating: <strong>@rev.Rating</strong></h4>
+        <p><a href="User/@rev.Reviewer.UserId">@rev.Reviewer.Name</a> - says "@rev.Content" (@rev.CreatedAt.ToString("d"))</p>
+    </div>
+}
+<h3>Other Books:</h3>
+@foreach(Book book in Model.OtherBooks)
+{
+    <a href="/books/@book.BookId">@book.Title</a>
+}
