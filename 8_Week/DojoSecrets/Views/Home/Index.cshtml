@@ -1,0 +1,52 @@
+@model LogRegModel
+<h1>Login.</h1>
+<form class="logreg" asp-action="PerformLogin" asp-controller="Home" method="POST">
+  
+    <span asp-validation-for="Login.email"></span>
+    <div class="form-group">
+        <label asp-for="Login.email"></label>
+        <input asp-for="Login.email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Login.password"></label>
+        <span asp-validation-for="Login.password"></span>
+        <input asp-for="Login.password">
+    </div>
+    <button>Login!</button>
+</form>
+<h1>Register.</h1>
+<form class="logreg" asp-action="RegisterNewUser" asp-controller="Home" method="POST">
+  
+    <div class="form-group">
+        <label asp-for="Registration.first_name"></label>
+        <span asp-validation-for="Registration.first_name"></span>
+        <input asp-for="Registration.first_name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registration.last_name"></label>
+        <span asp-validation-for="Registration.last_name"></span>
+        <input asp-for="Registration.last_name">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registration.email"></label>
+        <span asp-validation-for="Registration.email"></span>
+        <input asp-for="Registration.email">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registration.password"></label>
+        <span asp-validation-for="Registration.password"></span>
+        <input asp-for="Registration.password">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Registration.confirm"></label>
+        <span asp-validation-for="Registration.confirm"></span>
+        <input asp-for="Registration.confirm">
+    </div>
+
+    <button>Register!</button>
+</form>

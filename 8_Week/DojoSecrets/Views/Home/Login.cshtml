@@ -1,10 +1,9 @@
 @model LoginUser
-<h2>@TempData["message"]</h2>
-<form asp-action="PerformLogin" asp-controller="Home" method="POST">
+<form class="logreg" asp-action="PerformLogin" asp-controller="Home" method="POST">
   
+    <span asp-validation-for="email"></span>
     <div class="form-group">
         <label asp-for="email"></label>
-        <span asp-validation-for="email"></span>
         <input asp-for="email">
     </div>
 
